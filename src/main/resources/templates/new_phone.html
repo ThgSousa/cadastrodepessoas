@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <title>Cadastrar Clientes</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!--<link rel="stylesheet" href="style/styleCss.css"/>-->
+</head>
+<body>
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+    <h5 class="my-0 mr-md-auto font-weight-normal">Cadastrar Telefone</h5>
+    <nav class="my-2 my-md-0 mr-md-3">
+        <a class="p-2 text-dark" href="/">Inicio</a>
+    </nav>
+    <a class="btn btn-outline-primary" href="/new_user">Novo Usuario</a>
+</div>
+    <div class="container">
+        <div class="col-md-8 order-md-1">
+            <h4 class="mb-3">Telefone</h4>
+            <form class="needs-validation" method="post">
+
+
+                <div class="row">
+                    <div class="col-md-5 mb-3">
+                        <label for="user">Usuario</label>
+                        <select class="custom-select d-block w-100" id="user" name="iduser" required="">
+                            <option value="">...</option>
+                            <option th:each="user : ${users}" th:value="${user.id}" th:text="${user.nome}"></option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Escolha um usuario
+                        </div>
+                    </div>
+                    <div class="col-md-5 mb-3">
+                        <label>Telefone</label>
+                        <input type="number" class="form-control" name="tell" placeholder="ex: 99999-9999" required>
+                        <div class="invalid-feedback">
+                            Digite o telefone
+                        </div>
+                    </div>
+                </div>
+                <hr class="mb-4">
+                <button class="btn btn-primary btn-lg btn-block" type="submit">Salvar</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
