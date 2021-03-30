@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <title>Cadastrar Empresas</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!--<link rel="stylesheet" href="style/styleCss.css"/>-->
+</head>
+<body bgcolor="#fff0f5">
+
+
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+    <h5 class="my-0 mr-md-auto font-weight-normal">Cadastrar Empresas</h5>
+    <nav class="my-2 my-md-0 mr-md-3">
+        <a class="p-2 text-dark" href="/">Inicio</a>
+    </nav>
+    <a class="btn btn-outline-primary" href="/new_Company">Nova Empresa</a>
+</div>
+<div class="container">
+    <div class="col-md-12">
+        <h4 class="mb-3">Empresas</h4>
+        <footer class="text-muted">
+            <div class="container">
+                <p class="float-right">
+                    <a href="#">Voltar ao topo</a>
+                </p>
+                <p>procurando pela tabela de usuarios? Clique <a href="/">Aqui</a> para ir a pagina principal</a>.</p>
+            </div>
+        </footer>
+        <table class="table table-dark">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome fantasia</th>
+                <th scope="col">Email</th>
+                <th scope="col">Cnpj</th>
+                <th scope="col">Razão social</th>
+                <th scope="col">Atividade econômica</th>
+                <th scope="col">Descrição da natureza jurídica</th>
+                <th scope="col">Data Alteração</th>
+                <th scope="col">Opções</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="company : ${company}">
+                <th scope="row" th:text="${company.id}"></th>
+                <td th:text="${company.nome}"></td>
+                <td th:text="${company.email}"></td>
+                <td th:text="${company.cnpj}"></td>
+                <td th:text="${company.razao}"></td>
+                <td th:text="${company.ate}"></td>
+                <td th:text="${company.descricao}"></td>
+                <td th:text="${company.data}"></td>
+                <td>
+                    <a class="btn btn-info" th:href="@{'/tell_company/' + ${company.id}}" role="button">Telefones</a>
+                    <a class="btn btn-info" th:href="@{'/mail_company/' + ${company.id}}" role="button">Endereços</a>
+                    <a class="btn btn-primary" th:href="@{'/edit_company/' + ${company.id}}" role="button">Editar</a>
+                    <a class="btn btn-danger" th:href="@{'/delete_company/' + ${company.id}}" role="button">Apagar</a>
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>

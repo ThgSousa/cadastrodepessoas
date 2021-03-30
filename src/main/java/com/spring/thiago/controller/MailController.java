@@ -39,7 +39,7 @@ public class MailController {
 
 
     @RequestMapping(value = {"/mail_user/new"}, method = RequestMethod.GET)
-    public ModelAndView getUsers(){
+    public ModelAndView getMails(){
         ModelAndView mv = new ModelAndView("new_mail");
         List<User> users = userService.findALl();
         mv.addObject("users", users);
